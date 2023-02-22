@@ -10,6 +10,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         tiles.setTileAt(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Bottom), assets.tile`myTile1`)
         tiles.setTileAt(grid.getLocation(mySprite), assets.tile`myTile`)
         tiles.setTileAt(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Top), list[loop(list.indexOf(tiles.tileImageAtLocation(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Top))), 1)])
+    } else {
+        tiles.setTileAt(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Right), assets.tile`myTile1`)
+        tiles.setTileAt(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Left), list[loop(list.indexOf(tiles.tileImageAtLocation(grid.getLocation(mySprite).getNeighboringLocation(CollisionDirection.Left))), 2)])
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -72,6 +75,7 @@ forever(function () {
         }
     }
     if (win) {
+        pause(25)
         game.gameOver(true)
     }
     pause(50)
